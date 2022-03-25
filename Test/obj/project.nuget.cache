@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r3XW0DUj2OuqfZwmff0a2ZlcF3atSzPnusSnBy6kh+ySXe316OdDTbjtt79TeaEgq5dDW0EzN6ufaa147rSVqQ==",
+  "dgSpecHash": "qDfXxdTuGRjjzVWVCa2LSQxkQV1To88bhhHR5+zztXVOgqiCjjSKPNovIwEakXUGlciKl7rEliDpk1V22sEx0Q==",
   "success": true,
-  "projectFilePath": "D:\\Advanced-repos\\Lab02-Unit-Tests\\Test\\Test.csproj",
+  "projectFilePath": "C:\\Repos\\Advanced-repos\\Lab02-Unit-Tests\\Test\\Test.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -31,7 +31,7 @@ namespace Test
 
             decimal withdrawnAmount = x;
 
-            
+            /*
 
             //decimal temporaryBalance = userBalance;
 
@@ -42,8 +42,9 @@ namespace Test
             else
             {
                 //temporaryBalance = userBalance - withdrawnAmount;
-                userBalance -= withdrawnAmount;
             }
+            */
+                userBalance -= withdrawnAmount;
             Console.WriteLine(" ");
             Console.WriteLine($" Transaction successfull, your current Balance is {userBalance} ");
             Console.WriteLine("");
@@ -58,7 +59,7 @@ namespace Test
             Console.WriteLine("- Welcome to Deposit page -");
 
             decimal depositAmount = x;
-
+            /*
             //decimal temporaryBalance = userBalance;
 
             if (depositAmount <= 0)
@@ -68,8 +69,10 @@ namespace Test
             else
             {
                 //temporaryBalance = userBalance + depositAmount;
-                userBalance += depositAmount;
             }
+            */
+            userBalance += depositAmount;
+
             Console.WriteLine(" ");
             Console.WriteLine($"Transaction successfull, your current Balance is {userBalance}");
             Console.WriteLine("");
@@ -162,9 +165,9 @@ namespace Test
         {
             decimal depositAmount = x;
 
-            if (depositAmount < 0)
+            if (depositAmount <= 0)
             {
-                Console.WriteLine($"Error: Can't process your transaction, the amount you asked to Deposit ({depositAmount}) is Less than ZERO");
+                Console.WriteLine($"Error: Can't process your transaction, the amount you asked to Deposit ({depositAmount}) is Less than orequal to ZERO");
             }
             else
             {
