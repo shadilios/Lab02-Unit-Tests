@@ -5,6 +5,7 @@ namespace Test
     public class Program
     {
         public static decimal userBalance = 100;
+
         public static void Main(string[] args)
         {
 
@@ -18,7 +19,7 @@ namespace Test
             MakeLine();
             Console.WriteLine("- Welcome to balance page -");
             Console.WriteLine($" Your Current balance is: {userBalance} ");
-            UserInterface();
+            
             return userBalance;
         }
         
@@ -29,6 +30,8 @@ namespace Test
             //Console.WriteLine($" Current Balance is {userBalance} ");
 
             decimal withdrawnAmount = x;
+
+            
 
             //decimal temporaryBalance = userBalance;
 
@@ -85,35 +88,45 @@ namespace Test
         //this is an extra function I added to make the code cleaner
         public static void Welcome()
         {
-            MakeLine();
-            Console.WriteLine("Welcome to the Bank Interface, please Select What you want to do:");
-            Console.WriteLine("1 - View Balance");
-            Console.WriteLine("2 - Withdraw");
-            Console.WriteLine("3 - Deposit");
-            Console.WriteLine("Anything else - Quit");
+            bool runProgram = true;
 
-            var a = Console.ReadLine();
-            //var a = "2";
-
-            switch (a)
+            while (runProgram)
             {
-                case "1": ViewBalance(); 
-                    break;
+                MakeLine();
+                Console.WriteLine("Welcome to the Bank Interface, please Select What you want to do:");
+                Console.WriteLine("1 - View Balance");
+                Console.WriteLine("2 - Withdraw");
+                Console.WriteLine("3 - Deposit");
+                Console.WriteLine("0 - Quit");
 
-                case "2":
-                    Console.WriteLine("Input Withdraw amount: ");
-                    decimal withd = Convert.ToDecimal(Console.ReadLine());
-                    Withdraw(withd);
-                    break;
+                var a = Console.ReadLine();
 
-                case "3":
-                    Console.WriteLine("Input Deposit Amount: ");
-                    decimal depo = Convert.ToDecimal(Console.ReadLine());
-                    Deposit(depo);
-                    break;
+                switch (a)
+                {
+                    case "0":
+                        Console.WriteLine("thanks for using the bank, Have a nice day");
+                        runProgram = false;
+                        break;
 
-                default: Console.WriteLine("thanks for using the bank, Have a nice day");
-                    break;
+                    case "1":
+                        ViewBalance();
+                        break;
+
+                    case "2":
+                        Console.WriteLine("Input Withdraw amount: ");
+                        decimal withd = Convert.ToDecimal(Console.ReadLine());
+
+                        CheckWithdrawAmount(withd);
+
+                        //Withdraw(withd);
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Input Deposit Amount: ");
+                        decimal depo = Convert.ToDecimal(Console.ReadLine());
+                        CheckDepositAmount(depo);
+                        break;
+                }
             }
         }
 
@@ -127,6 +140,37 @@ namespace Test
             Console.WriteLine("");
         }
 
+        public static void CheckWithdrawAmount(decimal x)
+        {
+            decimal withdrawnAmount = x;
+
+            if (withdrawnAmount > userBalance)
+            {
+                Console.WriteLine($"Error: Can't process your transaction, the amount you asked to withdraw ({withdrawnAmount}) is MORE than the user balance ({userBalance})");
+            }
+            else if (withdrawnAmount < 0)
+            {
+                Console.WriteLine($"Error: Can't process your transaction, the amount you asked to withdraw ({withdrawnAmount}) is less than zero");
+            }
+            else
+            {
+                Withdraw(withdrawnAmount);
+            }
+        }
+
+        public static void CheckDepositAmount(decimal x)
+        {
+            decimal depositAmount = x;
+
+            if (depositAmount < 0)
+            {
+                Console.WriteLine($"Error: Can't process your transaction, the amount you asked to Deposit ({depositAmount}) is Less than ZERO");
+            }
+            else
+            {
+                Deposit(depositAmount);
+            }
+        }
         
     }
 }
