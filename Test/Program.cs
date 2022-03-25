@@ -7,19 +7,8 @@ namespace Test
         public static decimal userBalance = 100;
         public static void Main(string[] args)
         {
-            
-            Console.WriteLine("Enter 1 to start the Bank application or any random input if you're finished");
-            var a = Console.ReadLine();
 
-            if (a == "1")
-            {
-                UserInterface();
-            }
-            else
-            {
-                Console.WriteLine("thanks for using the bank, Have a nice day");
-                return;
-            }
+            UserInterface();
             
         }
 
