@@ -7,19 +7,8 @@ namespace Test
         public static decimal userBalance = 100;
         public static void Main(string[] args)
         {
-            
-            Console.WriteLine("Enter 1 to start the Bank application or any random input if you're finished");
-            var a = Console.ReadLine();
 
-            if (a == "1")
-            {
-                UserInterface();
-            }
-            else
-            {
-                Console.WriteLine("thanks for using the bank, Have a nice day");
-                return;
-            }
+            UserInterface();
             
         }
 
@@ -37,11 +26,11 @@ namespace Test
         {
             MakeLine();
             Console.WriteLine("- Welcome to withdraw page -");
-            Console.WriteLine($" Current Balance is {userBalance} ");
+            //Console.WriteLine($" Current Balance is {userBalance} ");
 
             decimal withdrawnAmount = x;
 
-            decimal temporaryBalance = userBalance;
+            //decimal temporaryBalance = userBalance;
 
             if (withdrawnAmount > userBalance || withdrawnAmount <= 0)
             {
@@ -49,14 +38,14 @@ namespace Test
             }
             else
             {
-                temporaryBalance = userBalance - withdrawnAmount;
-                //userBalance -= withdrawnAmount;
+                //temporaryBalance = userBalance - withdrawnAmount;
+                userBalance -= withdrawnAmount;
             }
             Console.WriteLine(" ");
-            Console.WriteLine($" Transaction successfull, your current Balance is {temporaryBalance} ");
+            Console.WriteLine($" Transaction successfull, your current Balance is {userBalance} ");
             Console.WriteLine("");
             
-            return temporaryBalance;
+            return userBalance;
             
         }
 
@@ -67,7 +56,7 @@ namespace Test
 
             decimal depositAmount = x;
 
-            decimal temporaryBalance = userBalance;
+            //decimal temporaryBalance = userBalance;
 
             if (depositAmount <= 0)
             {
@@ -75,14 +64,14 @@ namespace Test
             }
             else
             {
-                temporaryBalance = userBalance + depositAmount;
-                //userBalance += depositAmount;
+                //temporaryBalance = userBalance + depositAmount;
+                userBalance += depositAmount;
             }
             Console.WriteLine(" ");
-            Console.WriteLine($"Transaction successfull, your current Balance is {temporaryBalance}");
+            Console.WriteLine($"Transaction successfull, your current Balance is {userBalance}");
             Console.WriteLine("");
 
-            return temporaryBalance;
+            return userBalance;
 
 
         }
